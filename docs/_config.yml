@@ -21,9 +21,9 @@ title_separator          : "-"
 subtitle                 : Programming Robot Intelligence
 name                     : "JdeRobot - Google Summer of Code 2022"
 description              : "Programming Robot Intelligence"
-url                      : "https://theroboticsclub.github.io/gsoc2022-Nikhil_Paliwal/"
+url                      : https://theroboticsclub.github.io
 baseurl                  : "/gsoc2022-Nikhil_Paliwal"# the subpath of your site, e.g. "/blog"
-repository               : JdeRobot
+repository               : "TheRoboticsClub/gsoc2022-Nikhil_Paliwal"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : /assets/images/logo.png
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
