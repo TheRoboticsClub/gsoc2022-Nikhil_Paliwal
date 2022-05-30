@@ -8,7 +8,7 @@ header:
     #- label: "<i class='fas fa-download'></i> Install now"
     #  url: "/installation/"
 excerpt: 
-  Autonomous Driving Formula-one and Iris drone with Behavior Metrics and Deep Learning Studio
+  Optimization of Deep Learning models for autonomous driving
 feature_row:
   - image_path: /assets/images/cover/logbook.jpg
     alt: "Logbook"
