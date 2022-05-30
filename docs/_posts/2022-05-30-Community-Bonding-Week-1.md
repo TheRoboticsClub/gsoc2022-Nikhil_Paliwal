@@ -29,11 +29,11 @@ During our first official meetings, we started with little introduction about ou
 
 ## Objectives
 
-[x] Familiarize with relevant tools, explore documentations and tutorials.
-[x] Complete installation of Behavior Metrics and DeepLearningStudio.
-[x] Explore the repositories and identify potential bugs.
-[x] Prepare template for blog post
-[x] Write the blog for first week of community bonding.
+- [x] Familiarize with relevant tools, explore documentations and tutorials.
+- [x] Complete installation of Behavior Metrics and DeepLearningStudio.
+- [x] Explore the repositories and identify potential bugs.
+- [x] Prepare template for blog post
+- [x] Write the blog for first week of community bonding.
 
 
 ## The execution
