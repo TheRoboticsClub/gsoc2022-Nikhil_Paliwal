@@ -13,7 +13,8 @@ toc_icon: "cog"
 categories:
 - GSoC
 tags:
-- Jderobot
+- Docker
+- Virtualenv
 - Behavior Metrics
 - DL Studio
 
@@ -28,11 +29,14 @@ Through the discussion, we identify potential issues which need to be worked on 
 
 ## Objectives
 
-- [] Resolve dependency issue on DeepLearningStudio's virtual environment installation
-- [] Fix Dockerfiles to build the workflow in Behavior Metric
-- [] Explore the `show_pilots.py` script and report the relevance of it for the project
-- [] Update the `PilotNet` (PyTorch) model to use new dataset in DeepLearningStudio [2]
-- [] Implement evaluation on the validation set in training scripts of models
+- [ ] Resolve dependency issue on DeepLearningStudio's virtual environment installation
+- [ ] Fix Dockerfiles to build the workflow in Behavior Metric
+- [ ] Explore the `show_pilots.py` script and report the relevance of it for the project
+- [ ] Update the `PilotNet` (PyTorch) model to use new dataset in DeepLearningStudio [2]
+- [ ] Implement evaluation on the validation set in training scripts of models
+
+## Issues and Pull requests.
+* Created issue [Dependency conflict while installation #45](https://github.com/JdeRobot/DeepLearningStudio/issues/45) in DeepLearningStudio repo.
 
 ## The execution
 
