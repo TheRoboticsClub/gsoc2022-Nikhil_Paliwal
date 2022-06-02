@@ -29,7 +29,7 @@ Through the discussion, we identify potential issues which need to be worked on 
 
 ## Objectives
 
-- [ ] Resolve dependency issue on DeepLearningStudio's virtual environment installation
+- [X] Resolve dependency issue on DeepLearningStudio's virtual environment installation
 - [ ] Fix Dockerfiles to build the workflow in Behavior Metric
 - [ ] Explore the `show_pilots.py` script and report the relevance of it for the project
 - [ ] Update the `PilotNet` (PyTorch) model to use new dataset in DeepLearningStudio [2]
@@ -37,6 +37,7 @@ Through the discussion, we identify potential issues which need to be worked on 
 
 ## Issues and Pull requests.
 * Created issue [Dependency conflict while installation #45](https://github.com/JdeRobot/DeepLearningStudio/issues/45) in DeepLearningStudio repo.
+* Solved [issue #45](https://github.com/JdeRobot/DeepLearningStudio/issues/45) with PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46) in DeepLearningStudio repo.
 
 ## The execution
 
