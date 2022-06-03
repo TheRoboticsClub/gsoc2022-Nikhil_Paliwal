@@ -30,7 +30,7 @@ Through the discussion, we identify potential issues which need to be worked on 
 ## Objectives
 
 - [X] Resolve dependency issue on DeepLearningStudio's virtual environment installation
-- [ ] Fix Dockerfiles to build the workflow in Behavior Metric
+- [X] Fix Dockerfiles to build the workflow in Behavior Metric
 - [ ] Explore the `show_pilots.py` script and report the relevance of it for the project
 - [ ] Update the `PilotNet` (PyTorch) model to use new dataset in DeepLearningStudio [2]
 - [ ] Implement evaluation on the validation set in training scripts of models
@@ -38,10 +38,12 @@ Through the discussion, we identify potential issues which need to be worked on 
 ## Issues and Pull requests.
 * Created issue [Dependency conflict while installation #45](https://github.com/JdeRobot/DeepLearningStudio/issues/45) in DeepLearningStudio repo.
 * Solved [issue #45](https://github.com/JdeRobot/DeepLearningStudio/issues/45) with PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46) in DeepLearningStudio repo.
+* Solved docker issues with PR [Fixes failing build of Docker images (with GPU support) in the workflow #365](https://github.com/JdeRobot/BehaviorMetrics/pull/365) in BehaviorMetric repo.
 
 ## The execution
 
-I will include my work here.
+My initial task includes upgrading Python version and related packages in the DeepLearningStudio repository and submitted PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46). Next, I worked on the issues with docker images in BehaviorMetric repository, by locally buidling, resolving errors and creating containers and then submitted PR [Fixes failing build of Docker images (with GPU support) in the workflow #365](https://github.com/JdeRobot/BehaviorMetrics/pull/365).
+
 
 ## References
 
