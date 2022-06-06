@@ -33,7 +33,7 @@ Through the discussion, we identify potential issues which need to be worked on 
 - [X] Fix Dockerfiles to build the workflow in Behavior Metric
 - [X] Explore the `show_pilots.py` script and report the relevance of it for the project
 - [X] Update the `PilotNet` (PyTorch) model to use new dataset in DeepLearningStudio [2]
-- [ ] Implement evaluation on the validation set in training scripts of models
+<!-- - [ ] Implement evaluation on the validation set in training scripts of models -->
 
 ## Issues and Pull requests.
 * Created issue [Dependency conflict while installation #45](https://github.com/JdeRobot/DeepLearningStudio/issues/45) in DeepLearningStudio repo.
