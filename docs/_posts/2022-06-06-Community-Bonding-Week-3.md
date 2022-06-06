@@ -34,15 +34,19 @@ When we save stats of a simulation a window shows all metrics in details. We wil
 
 ## Objectives
 
-- [ ] Solve the issue [Error while trying to save stats with DL-torch.yml config #368](https://github.com/JdeRobot/BehaviorMetrics/issues/368) and sumbit a PR
-- [ ] Fix the issue [Not utilizing GPU when running simulation #369](https://github.com/JdeRobot/BehaviorMetrics/issues/369).
-- [ ] Update PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46) to remove additional packages and include installation instructions in REAMDE
-- [ ] Update PR [Use new dataset #49](https://github.com/JdeRobot/DeepLearningStudio/pull/49) - Add feature to let user specify each dataset directory and normalize label values.
-- [ ] Update PilotNet brain in BehaviorNet to unnormalize (expand) the predicted values
+- [X] Solve the issue [Error while trying to save stats with DL-torch.yml config #368](https://github.com/JdeRobot/BehaviorMetrics/issues/368) and submit a PR
+- [X] Fix the issue [Not utilizing GPU when running simulation #369](https://github.com/JdeRobot/BehaviorMetrics/issues/369).
+- [X] Update PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46) to remove additional packages and include installation instructions in REAMDE
+- [X] Update PR [Use new dataset #49](https://github.com/JdeRobot/DeepLearningStudio/pull/49) - Add feature to let user specify each dataset directory and normalize label values.
+- [X] Update PilotNet brain in BehaviorNet to unnormalize (expand) the predicted values
 - [ ] Implement evaluation on the validation set in training scripts of models
 
 ## Issues and Pull requests.
-*
+* Submitted PR [Removed: unnecessary exp details #370](https://github.com/JdeRobot/BehaviorMetrics/pull/370) to fix [issue #368](https://github.com/JdeRobot/BehaviorMetrics/issues/368).
+* Solved [issue #369](https://github.com/JdeRobot/BehaviorMetrics/issues/369) by PR [Update: brain file to use gpu #371](https://github.com/JdeRobot/BehaviorMetrics/pull/371).
+* Updated PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46).
+* Updated PR [Use new dataset #49](https://github.com/JdeRobot/DeepLearningStudio/pull/49).
+* Create a PR [unnormalized prediction value #372](https://github.com/JdeRobot/BehaviorMetrics/pull/372) to unnormalize (expand) the predicted values of PilotNet brain in BehaviorNet.
 
 ## The execution
 
