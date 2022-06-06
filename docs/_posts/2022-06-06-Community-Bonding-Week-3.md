@@ -27,7 +27,7 @@ pinned: false
 
 I identified some errors while using the existing frameworks. This week, we will continue to fix the issues found and discussed during the meeting. I also verified the inference time for PilotNet model (PyTorch implementation), the difference between the CPU vs GPU execution is (0.0265  vs 0.0192) seconds (mean inference time) for simulation of 1 minute.
 
-![](../assets/images/blogs/sim_stat_metrics.png)
+![ ](/assets/images/blogs/sim_stat_metrics.png)
 
 When we save stats of a simulation a window shows all metrics in details. We will also use this in later phases to evaluate and compare our optimized models. I describe our new objectives next.
 
