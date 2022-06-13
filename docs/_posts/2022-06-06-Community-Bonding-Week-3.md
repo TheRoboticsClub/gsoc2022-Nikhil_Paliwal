@@ -39,7 +39,7 @@ When we save stats of a simulation a window shows all metrics in details. We wil
 - [X] Update PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46) to remove additional packages and include installation instructions in REAMDE
 - [X] Update PR [Use new dataset #49](https://github.com/JdeRobot/DeepLearningStudio/pull/49) - Add feature to let user specify each dataset directory and normalize label values.
 - [X] Update PilotNet brain in BehaviorNet to unnormalize (expand) the predicted values
-- [ ] Implement evaluation on the validation set in training scripts of models
+- [X] Implement evaluation, on a validation set, in the training scripts of models
 
 ## Issues and Pull requests.
 * Submitted PR [Removed: unnecessary exp details #370](https://github.com/JdeRobot/BehaviorMetrics/pull/370) to fix [issue #368](https://github.com/JdeRobot/BehaviorMetrics/issues/368).
@@ -47,9 +47,11 @@ When we save stats of a simulation a window shows all metrics in details. We wil
 * Updated PR [updated package versions for python3.10 #46](https://github.com/JdeRobot/DeepLearningStudio/pull/46).
 * Updated PR [Use new dataset #49](https://github.com/JdeRobot/DeepLearningStudio/pull/49).
 * Create a PR [unnormalized prediction value #372](https://github.com/JdeRobot/BehaviorMetrics/pull/372) to unnormalize (expand) the predicted values of PilotNet brain in BehaviorNet.
+* Updated PilotNet training script with PR [Adding validation set for model selection #50](https://github.com/JdeRobot/DeepLearningStudio/pull/50). 
 
 ## The execution
 
+This week was dedicated to resolves the previously found issues. Moreover I also included new features which would be helpful in conducting experiments and evaluation. For the training part, I worked on finalizing installation packages, enable training scripts to use GPU, also update it to use new training datasets and evaluate on a validation set. Furthermore, the inference scripts on BehaviorMetrics were updated accordingly. 
 
 
 ## References
