@@ -38,10 +38,11 @@ During the community bonding period, I prepared the tools for use in coding peri
 - [ ] DeepestLSTMTinyPilotNet optimization experiment with TensorRT
 
 ## Issues and Pull requests.
-*
+* While working on baseline I came across issue [Missing argument: learning_rate #55](https://github.com/JdeRobot/DeepLearningStudio/issues/55)
 
 ## The execution
-The baseline was calculate using dataset based on circuits - Simple circuit, Montmeló and Montreal. 
+I follow the data split defined in paper [Memory based neural networks for end-to-end autonomous driving](https://arxiv.org/abs/2205.12124). The baseline was calculate using dataset based on circuits - Simple circuit, Montmeló and Montreal. I came across a time consuming error regarding cuda `Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0`. It took me quite some time to solve the issue and installing new Cuda package is also time consuming. I need to reinstall the complete GPU (cuda) environment.
+ <!-- and found suitable instructions in the [blog](https://medium.com/@anarmammadli/how-to-install-cuda-11-4-on-ubuntu-18-04-or-20-04-63f3dee2099) for Ubuntu 18.04 and Cuda 11.4. -->
 
 ## References
 
