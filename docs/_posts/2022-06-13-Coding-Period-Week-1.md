@@ -54,5 +54,5 @@ Due to the major blockage with cuda environment, the other unfinished goals will
 ## References
 
 [1] [https://github.com/JdeRobot/BehaviorMetrics](https://github.com/JdeRobot/BehaviorMetrics) \\
-[2] [https://github.com/JdeRobot/DeepLearningStudio](https://github.com/JdeRobot/DeepLearningStudio)
+[2] [https://github.com/JdeRobot/DeepLearningStudio](https://github.com/JdeRobot/DeepLearningStudio) \\
 [3] [https://developer.nvidia.com/tensorrt](https://developer.nvidia.com/tensorrt)
