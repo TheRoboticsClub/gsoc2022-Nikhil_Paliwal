@@ -1,6 +1,6 @@
 ---
-title: "Coding Period: Week 1"
-excerpt: "Set baseline and first optimization experiment"
+title: "Coding Period: Week 2"
+excerpt: "More on baseline and optimization experiment with TensorRT"
 usemathjax: true
 sidebar:
   nav: "docs"
