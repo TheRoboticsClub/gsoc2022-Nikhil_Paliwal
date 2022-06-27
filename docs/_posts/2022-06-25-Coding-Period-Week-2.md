@@ -43,12 +43,28 @@ I follow the data split defined in paper [Memory based neural networks for end-t
 
 The following table present baseline performances:
 
-Model | Loss | MSE | Mean Absolute Error | Inference time
+Model | Loss | MSE | Mean Absolute Error | Inference time (`time()` / `perf_counter()` / [4])
 --- | --- | --- | --- | ---
 PilotNet | 0.041 | 0.041 | 0.095 | (0.0364 / 0.035 / 0.0323)  sec 
-Deepest \\ LSTM \\ TinyPilotNet | 0.025 | 0.019 | 0.051 | (0.0358 / 0.0356 / 0.0355) sec
+Deepest <br> LSTM <br> TinyPilotNet | 0.025 | 0.019 | 0.051 | (0.0358 / 0.0356 / 0.0355) sec
 
-My code for evaluating the performance of PilotNet can be found in a separate branch [baseline-exp](https://github.com/nik1806/DeepLearningStudio/tree/baseline-exp).
+My code for evaluating the performance of PilotNet can be found in a separate branch [baseline-exp](https://github.com/nik1806/DeepLearningStudio/tree/baseline-exp). 
+
+TensorFlow-TensorRT (TF-TRT) is a library to support inference optimization on Nvidia GPU's. Nvidia has very well presented it in the [blog](https://blog.tensorflow.org/2021/01/leveraging-tensorflow-tensorrt-integration.html) [6, 7]. Two important things which needs to taken care:
+1. TensorFlow 2.x, TF-TRT only supports models saved in the TensorFlow [SavedModel](https://www.tensorflow.org/guide/saved_model) format.
+2. TensorRT execution engine should be built on a GPU of the same device type as the one on which inference will be executed as the building process is GPU specific.
+
+Additional steps for installations are:
+```
+pip install nvidia-pyindex
+pip install nvidia-tensorrt
+```
+
+I came across an error `Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7:` and `Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7:`. Solving / installation will takes hours, so one should plan accordingly. I realized that unfortunately for local installation I have install specific version of cuda and TensorRT but some were not supported for my OS - ubunt18.04. After spending one day experimenting with different installation ways such as .deb, tars or pip wheel, I decided to use pre-build docker. Nvidia provide a docker image which support TensorRT and TF-TRT - [https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow). 
+
+```
+
+```
 
 
 ## References
@@ -57,4 +73,7 @@ My code for evaluating the performance of PilotNet can be found in a separate br
 [2] [https://github.com/JdeRobot/DeepLearningStudio](https://github.com/JdeRobot/DeepLearningStudio) \\
 [3] [https://developer.nvidia.com/tensorrt](https://developer.nvidia.com/tensorrt) \\
 [4] [https://towardsdatascience.com/the-correct-way-to-measure-inference-time-of-deep-neural-networks-304a54e5187f](https://towardsdatascience.com/the-correct-way-to-measure-inference-time-of-deep-neural-networks-304a54e5187f) \\
-[5] [https://stackoverflow.com/questions/52222002/what-is-the-difference-between-time-perf-counter-and-time-process-time](https://stackoverflow.com/questions/52222002/what-is-the-difference-between-time-perf-counter-and-time-process-time)
+[5] [https://stackoverflow.com/questions/52222002/what-is-the-difference-between-time-perf-counter-and-time-process-time](https://stackoverflow.com/questions/52222002/what-is-the-difference-between-time-perf-counter-and-time-process-time) \\
+[6] [https://blog.tensorflow.org/2021/01/leveraging-tensorflow-tensorrt-integration.html](https://blog.tensorflow.org/2021/01/leveraging-tensorflow-tensorrt-integration.html)
+[7] [https://docs.nvidia.com/deeplearning/frameworks/tf-trt-user-guide/index.html](https://docs.nvidia.com/deeplearning/frameworks/tf-trt-user-guide/index.html)
+[8] [https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow)
