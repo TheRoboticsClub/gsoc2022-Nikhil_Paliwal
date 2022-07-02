@@ -1,5 +1,5 @@
 ---
-title: "Coding Period: Week 2"
+title: "Coding Period: Week 3"
 excerpt: "Optimization with Quantization techniques"
 usemathjax: true
 sidebar:
