@@ -1,6 +1,6 @@
 ---
 title: "Coding Period: Week 3"
-excerpt: "Optimization with Quantization techniques"
+excerpt: "Optimization with Quantization, Pruning and combination techniques"
 usemathjax: true
 sidebar:
   nav: "docs"
@@ -14,9 +14,10 @@ categories:
 - GSoC
 tags:
 - Quantization
-- TensorRT
-- Behavior Metrics
+- Pruning
 - DL Studio
+- Tensorflow
+- Behavior Metrics
 
 author: Nikhil Paliwal
 pinned: false
@@ -36,18 +37,18 @@ Quantization works by reducing the precision of the numbers used to represent a 
 - [X] Prepare scripts for baseline evaluation and submit a PR
 - [ ] Solve TensorRT issues
 - [X] Use Post-training quantization techniques to optimize PilotNet
-  - [X] Dynamic range quantization
-  - [X] Integer only quantization
-  - [X] Integer (float fallback) quantization
-  - [X] Float16 quantization
+    - [X] Dynamic range quantization
+    - [X] Integer only quantization
+    - [X] Integer (float fallback) quantization
+    - [X] Float16 quantization
 <!-- - [ ] Use Post-training quantization techniques to optimize DeepestLSTMTinyPilotNet -->
 - [X] Prepare a script to run all optimization techniques and compare.
 
 ### Additionally completed
 - [X] Include Quantization aware training techniques to model optimization stack.
 - [X] Include Pruning techniques to model optimization stack.
-  - [X] Random sparsity pruning
-    - [X] Combine with post-training quantization
+    - [X] Random sparsity pruning
+        - [X] Combine with post-training quantization
   <!-- - [X] Structured pruning  -->
 
 ## Related Issues and Pull requests.
