@@ -62,7 +62,7 @@ Quantization works by reducing the precision of the numbers used to represent a 
 - [Clustering](https://www.tensorflow.org/model_optimization/guide#clustering)
 - [Collaborative optimization](https://www.tensorflow.org/model_optimization/guide#collaborative_optimizaiton)
 
-For this week, I have put additional days to expedite the progress in the project.
+For this week, I have put additional days to expedite the progress in the project. The GPU server was pre-occupied, so TensorRT usage issues will be address in coming weeks.
 
 ### Installation of TensorFlow Model Optimization
 The instructions are provided [5] as:
@@ -104,7 +104,8 @@ Structural pruning systematically zeroes out model weights at the beginning of t
 
 Method  | Model size (MB) | MSE  | Inference time (s)
 --- | --- | --- | --- 
-Baseline | 64.9173469543457 | 0.04108056542969754 | 0.007913553237915039 
+PilotNet (original tf format) | 195 | 0.041 | 0.0364
+Baseline (tflite format)| 64.9173469543457 | 0.04108056542969754 | 0.007913553237915039 
 Dynamic Range Q | **16.242530822753906** | **0.04098070281274293** | 0.004902467966079712
 Float16 Q | 32.464256286621094 | 0.041072421023905605 | 0.007940708875656129
 Q aware training | **16.242530822753906** | **0.04098070281274293** | **0.004691281318664551**
@@ -113,6 +114,7 @@ Weight pruning + Q | **16.242530822753906** | 0.042606822364652304 | 0.004810283
 Integer only Q | 16.244918823242188 | 28157.721509850544 | 0.007908073902130127
 Integer (float fallback) Q | 16.244888305664062 | 0.04507085706016211 | 0.00781548523902893
 
+*All the results are for model converted to tflite models if not specified.*
 
 ### Observations
 * The baseline / original model also got improvements in model size (195 -> 64.9 MB) and inference time (0.0364 -> 0.00791) when converted to `tflite` format without increase in mean square error (MSE).
@@ -120,10 +122,18 @@ Integer (float fallback) Q | 16.244888305664062 | 0.04507085706016211 | 0.007815
     model size: 4x reduction <br>
     MSE: slightly better (0.0001 reduction) <br>
     Inference time: ~1.7x reduction
+    * This strategy required access to a subset of training data.
 * We also found that integer quantization is not suitable for our model, because we perform a regression task. The precision loss due to quantization severly increase our MSE, making its use impossible.
+* From the original model (in tensorflow format), we achieved - <br>
+    model size: 10x reduction <br>
+    MSE: slightly better (0.0001 reduction) <br>
+    Inference time: ~7.7x reduction
+* The most faster and economical choice would be use **Dynamic range quantization** because it doesn't need any dataset or time to train.
 
 ### Experimental setup
 For using the complete dataset, I need a more powerful machine. I used a Nvidia V100 GPU with 32GB memory. The batch size was 1024. All subsets of new datasets are used for experiment.  
+
+All the optimized models are publicly available in the [google drive](https://drive.google.com/drive/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt?usp=sharing).
 
 ## References
 
