@@ -114,7 +114,7 @@ Weight pruning + Q | **16.242530822753906** | 0.042606822364652304 | 0.004810283
 Integer only Q | 16.244918823242188 | 28157.721509850544 | 0.007908073902130127
 Integer (float fallback) Q | 16.244888305664062 | 0.04507085706016211 | 0.00781548523902893
 
-*All the results are for model converted to tflite models if not specified.*
+*All the results are for models converted to tflite models if not specified.*
 
 ### Observations
 * The baseline / original model also got improvements in model size (195 -> 64.9 MB) and inference time (0.0364 -> 0.00791) when converted to `tflite` format without increase in mean square error (MSE).

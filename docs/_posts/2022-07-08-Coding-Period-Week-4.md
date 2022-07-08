@@ -1,6 +1,6 @@
 ---
 title: "Coding Period: Week 4"
-excerpt: "Verification of optimization models (offline and simulation)"
+excerpt: "Verification of optimizated models (offline and simulation)"
 usemathjax: true
 sidebar:
   nav: "docs"
@@ -25,7 +25,7 @@ pinned: false
 
 
 ## Preliminaries
-The previous week a present the important theoretical background, implementation, results and observations from optimizating the PilotNet model. In this week, we focus on verifying the utility of the compressed models. We will test the model on different GPU hardward in offline fashion (using usual test scripts) and simulation with Behavior Metrics tool. It includes enabling inference scripts in Behavior Metrics to utilize the optimized models. If time permits I will continue working on TensorRT and creating optimization script for DeepestLSTMTinyPilotNet architecture.  
+The previous week, I presented the important theoretical background, implementation, results and observations from optimizating the PilotNet model. In this week, we focus on verifying the utility of the compressed models. We will test the models on different GPU hardward in offline fashion (using usual test scripts) and via simulation with Behavior Metrics tool. It includes enabling inference scripts in Behavior Metrics to utilize the optimized models. If time permits I will continue working on TensorRT and creating optimization script for DeepestLSTMTinyPilotNet architecture.  
 
 ## Objectives
 
@@ -36,7 +36,7 @@ The previous week a present the important theoretical background, implementation
 - [ ] Continue progress on other optimization strategy
 <!-- - [ ] Use Post-training quantization techniques to optimize DeepestLSTMTinyPilotNet -->
 
-### Additionally completedning quantization
+### Additionally completed
   <!-- - [X] Structured pruning  -->
 
 ## Related Issues and Pull requests.
@@ -69,10 +69,10 @@ Integer only Q | 16.244918823242188 | 28147.113743361497 | 0.00712398886680603
 Integer (float fallback) Q | 16.244888305664062 | 0.04501058531541387 | 0.007014316082000732
 
 
-*All the results are for model converted to tflite models if not specified.*
+*All the results are for models converted to tflite models if not specified.*
 
 #### Conclusions
-* **The improvements are consistent with previous week results - same model compression rate, no increase in MSE and even a little improvement in inference time (better by 0.0009 s).**
+* **The improvements are consistent** with previous week results - same model compression rate, no increase in MSE and even a little improvement in inference time (better by 0.0009 s).
 * The baseline / original model also got improvements in model size (195 -> 64.9 MB) and inference time (0.0364 -> 0.00791) when converted to `tflite` format without increase in mean square error (MSE).
 * **Dynamic range quantization** strategy gives best model in all aspects - <br>
     model size: 4x reduction <br>
