@@ -30,20 +30,35 @@ The previous week, I presented the important theoretical background, implementat
 ## Objectives
 
 - [X] Evaluation performance of optimized models on another GPU to cross verify the results (offline fashion)
-- [ ] Check the performance on a test simulation 
-- [ ] Create a script to utilize optimized models in Behavior Metrics
-- [ ] Compare baseline and (best) optimized model in terms of `total time`, `average speed` and `inference time` to complete a lap.
-- [ ] Continue progress on other optimization strategy
+- [X] Check the performance on a test simulation 
+- [X] Create a script to utilize optimized models in Behavior Metrics
+- [X] Benchmark baseline PilotNet modle in terms of `inference time`, `average speed` and `position deviation MAE` to complete a lap.
+- [X] Dynamic range quantized PilotNet model in terms of `inference time`, `average speed` and `position deviation MAE` to complete a lap.
+- [X] Quantized aware trained PilotNet model in terms of `inference time`, `average speed` and `position deviation MAE` to complete a lap.
+- [X] Pruned models in terms of `inference time`, `average speed` and `position deviation MAE` to complete a lap.
+- [X] Compare the simulation results and draw conclusions
+- [X] Continue progress on other optimization strategy
 <!-- - [ ] Use Post-training quantization techniques to optimize DeepestLSTMTinyPilotNet -->
 
 ### Additionally completed
+- [X] New issues and solution for execution of TensorFlow supported brain on BehaviorMetrics 
   <!-- - [X] Structured pruning  -->
 
 ## Related Issues and Pull requests.
-<!-- * The code is requested to be add to official repository via PR #67 [Add support for baseline evaluation and model optimization](https://github.com/JdeRobot/DeepLearningStudio/pull/67) -->
-* 
+
+Related to use BehaviorMetrics repository:
+* [ImportError: cannot import name 'ft2font' from 'matplotlib' #383](https://github.com/JdeRobot/BehaviorMetrics/issues/383)
+* [AttributeError: 'Brain' object has no attribute 'suddenness_distance' #384](https://github.com/JdeRobot/BehaviorMetrics/issues/384)
+* [Skipping registering GPU devices #385](https://github.com/JdeRobot/BehaviorMetrics/issues/385)
+
+PR to sumbit new script:
+* [Update the scripts to support optimized tflite models #386](https://github.com/JdeRobot/BehaviorMetrics/pull/386).
 
 ## The execution
+
+The issue on my local machine mentioned in last week blog - `docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]]` was solved by following the recommendation from [nvidia forum](https://forums.developer.nvidia.com/t/could-not-select-device-driver-with-capabilities-gpu/80200). The provided server is a docker container and I expect some support from mentor for additional setup because I can not directly use TensorRT docker on another docker container.  
+
+**All the optimized models are publicly available in the [google drive](https://drive.google.com/drive/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt?usp=sharing).**
 
 ### Installation of TensorFlow Model Optimization
 The instructions are provided [5] as:
@@ -89,7 +104,37 @@ Integer (float fallback) Q | 16.244888305664062 | 0.04501058531541387 | 0.007014
 <!-- ### Experimental setup
 For using the complete dataset, I need a more powerful machine. I used a Nvidia V100 GPU with 32GB memory. The batch size was 1024. All subsets of new datasets are used for experiment.   -->
 
-All the optimized models are publicly available in the [google drive](https://drive.google.com/drive/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt?usp=sharing).
+### Performance on simulation (online fashion)
+
+I used my personal computer with a `NVIDIA GeForce GTX 1050/PCIe/SSE2` GPU with `Intel® Core™ i7-7700HQ CPU @ 2.80GHz × 8 ` CPU, 8 GB RAM and batch size of 1 (for inference). The `stats` are recorded after approximately one lap and for comparison, focus should be on the aspect of average calculations. The current BehaviorMetrics tool need more updates for working with a Tensorflow environment and I have tried to provide support by creating and solving issues. Although, I lot of reinstallations and time  has been diverted in making environment, cuda, cudnn, VNC and docker work together.  
+
+#### Baseline
+![ ]({{ site.url }}{{ site.baseurl }}/assets/images/blogs/baseline_pilotnet.png)
+
+#### Dynamic range quantization
+![ ]({{ site.url }}{{ site.baseurl }}/assets/images/blogs/dynamic_q_res.png)
+
+#### Quantization aware training
+![ ]({{ site.url }}{{ site.baseurl }}/assets/images/blogs/q_aware_res.png)
+
+#### Rest optmization strategies
+Other strategies were not able to complete one lap properly. So, they are excluded from comparison.
+
+#### Comparison table
+
+
+Method  | Average speed | Position deviation MAE | Brain iteration frequency (RT) | Mean Inference time (s)
+--- | --- | --- | --- | ---
+Baseline | 8.386 | 7.406 | 5.585 | 0.124
+Dynamic Range Q | 8.534 | 6.693 | 58.474 | 0.010
+Q aware training | 8.472 | 5.001 | 58.09 | 0.010
+
+#### Conclusion
+* The benefits obtained from optimizing models are relevant for both offline and online (simulation) usecases.
+* We observe slight improvement in `Average speed` and `Position deviation MAE`.
+* On average, quantization strategy gives a boost of ~10x times to other aspects (inferece time etc.).
+* The optimized model complete lap 1 second faster (in 50s) as compare to baseline (in 51s).
+* Unfortunately, other strategies such as pruning and integer quantization are not appropriate to be used in simulation.
 
 ## References
 
