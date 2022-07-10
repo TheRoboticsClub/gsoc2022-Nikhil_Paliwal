@@ -126,8 +126,8 @@ Other strategies were not able to complete one lap properly. So, they are exclud
 Method  | Average speed | Position deviation MAE | Brain iteration frequency (RT) | Mean Inference time (s)
 --- | --- | --- | --- | ---
 Baseline | 8.386 | 7.406 | 5.585 | 0.124
-Dynamic Range Q | 8.534 | 6.693 | 58.474 | 0.010
-Q aware training | 8.472 | 5.001 | 58.09 | 0.010
+Dynamic Range Q | **8.534** | 6.693 | **58.474** | **0.010**
+Q aware training | 8.472 | **5.001** | 58.09 | **0.010**
 
 #### Conclusion
 * The benefits obtained from optimizing models are relevant for both offline and online (simulation) usecases.
