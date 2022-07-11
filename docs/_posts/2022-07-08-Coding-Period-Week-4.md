@@ -106,9 +106,9 @@ For using the complete dataset, I need a more powerful machine. I used a Nvidia 
 
 ### Performance on simulation (online fashion)
 
-I used my personal computer with a `NVIDIA GeForce GTX 1050/PCIe/SSE2` GPU with `Intel® Core™ i7-7700HQ CPU @ 2.80GHz × 8 ` CPU, 8 GB RAM and batch size of 1 (for inference). The `stats` are recorded after approximately one lap and for comparison, focus should be on the aspect of average calculations. The current BehaviorMetrics tool need more updates for working with a Tensorflow environment and I have tried to provide support by creating and solving issues. Although, I lot of reinstallations and time  has been diverted in making environment, cuda, cudnn, VNC and docker work together.  
+I used my personal computer with a `NVIDIA GeForce GTX 1050/PCIe/SSE2` GPU with `Intel® Core™ i7-7700HQ CPU @ 2.80GHz × 8 ` CPU, 8 GB RAM and batch size of 1 (for inference). The `stats` are recorded after approximately one lap in `Simple circuit` and for comparison, focus should be on the aspect of average calculations. The current BehaviorMetrics tool need more updates for working with a Tensorflow environment and I have tried to provide support by creating and solving issues. Although, I lot of reinstallations and time  has been diverted in making environment, cuda, cudnn, VNC and docker work together.  
 
-#### Baseline
+#### PilotNet (original)
 ![ ]({{ site.url }}{{ site.baseurl }}/assets/images/blogs/baseline_pilotnet.png)
 
 #### Dynamic range quantization
@@ -117,7 +117,7 @@ I used my personal computer with a `NVIDIA GeForce GTX 1050/PCIe/SSE2` GPU with 
 #### Quantization aware training
 ![ ]({{ site.url }}{{ site.baseurl }}/assets/images/blogs/q_aware_res.png)
 
-#### Rest optmization strategies
+#### Remaining optimization strategies
 Other strategies were not able to complete one lap properly. So, they are excluded from comparison.
 
 #### Comparison table
@@ -125,14 +125,14 @@ Other strategies were not able to complete one lap properly. So, they are exclud
 
 Method  | Average speed | Position deviation MAE | Brain iteration frequency (RT) | Mean Inference time (s)
 --- | --- | --- | --- | ---
-Baseline | 8.386 | 7.406 | 5.585 | 0.124
+PilotNet (original) | 8.386 | 7.406 | 5.585 | 0.124
 Dynamic Range Q | **8.534** | 6.693 | **58.474** | **0.010**
 Q aware training | 8.472 | **5.001** | 58.09 | **0.010**
 
 #### Conclusion
 * The benefits obtained from optimizing models are relevant for both offline and online (simulation) usecases.
-* We observe slight improvement in `Average speed` and `Position deviation MAE`.
 * On average, quantization strategy gives a boost of ~10x times to other aspects (inferece time etc.).
+* We observe slight improvement in `Average speed` and `Position deviation MAE`. The credit can be given to reduced latency by optimized models.
 * The optimized model complete lap 1 second faster (in 50s) as compare to baseline (in 51s).
 * Unfortunately, other strategies such as pruning and integer quantization are not appropriate to be used in simulation.
 
