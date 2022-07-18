@@ -56,14 +56,64 @@ PR to sumbit new script:
 ### Video demonstration
  I used my personal computer with a `NVIDIA GeForce GTX 1050/PCIe/SSE2` GPU with `Intel® Core™ i7-7700HQ CPU @ 2.80GHz × 8 ` CPU, 8 GB RAM and batch size of 1 for simulation.
 
-### PilotNet
+#### PilotNet
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-7O53BGZKRc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Dynamic range quantization
+#### Dynamic range quantization
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1C71Zyynvww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Quantization aware training
+#### Quantization aware training
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VlSD63_0yD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Additional performance benchmarking on simulation (online fashion)
+
+I used my personal computer with a `NVIDIA GeForce GTX 1050/PCIe/SSE2` GPU with `Intel® Core™ i7-7700HQ CPU @ 2.80GHz × 8 ` CPU, 8 GB RAM and batch size of 1 (for inference). The `stats` are recorded after approximately one lap or untill collision in `Montreal circuit` and for comparison, focus should be on the aspect of average calculations. Unfortunately, the F1 car collide with the wall at very early stage in `Montemelo circuit`, so I have not include their stats (since they will not be reliable).
+
+#### Comparison table - Montreal Circuit
+
+
+Method  | Average speed | Mean Inference time (s) | Distance covered | Circuit complete 
+--- | --- | --- | --- | ---
+PilotNet (original) | 9.431 | 0.1228 | 1301.58 | No
+Dynamic Range Q | 9.728 | 0.0119 | 1303.83 | No
+Q aware training | **10.06** | **0.0114** | 2737 | **Yes**
+
+#### Conclusion
+* The optimized models are better in terms of MSE performance than original models.
+* All the models still struggle with difficult circuits and better training strategies are need for this.
+* On average, quantization strategy gives a boost of ~10x times to other aspects (inferece time etc.).
+* We observe slight improvement in `Average speed` and `Position deviation MAE`. The credit can be given to reduced latency by optimized models.
+
+### [Collaborative Optimization](https://www.tensorflow.org/model_optimization/guide/combine/collaborative_optimization)
+
+The idea of collaborative optimizations is to build on individual techniques by applying them one after another to achieve the accumulated optimization effect. The issue that arises when attempting to chain these techniques together is that applying one typically destroys the results of the preceding technique, spoiling the overall benefit of simultaneously applying all of them. To solve this problem, Tensorflow has introduce the various experimental collaborative optimization techniques. I implemented and trained the following:
+* Sparsity preserving quantization aware training (PQAT)
+* Cluster preserving quantization aware training (CQAT)
+* Sparsity and cluster preserving quantization aware training (PCQAT)
+
+The updates in scripts are included in [PR#67](https://github.com/JdeRobot/DeepLearningStudio/pull/67). For using the complete dataset, I need a more powerful machine. I used a Nvidia V100 GPU with 32GB memory. The batch size was 1024. All subsets of new datasets are used for experiment.
+
+#### Result table
+
+Method | Model size (MB) | MSE | Inference time (s)
+--- | --- | --- | --- 
+PilotNet (original tf format) | 195 | 0.041 | 0.0364
+Baseline (tflite format)| 64.9173469543457 | 0.04108056542969754 | 0.007913553237915039 
+CQAT | 16.250564575195312 | 0.0393811650675438 | 0.007680371761322021
+PQAT | 16.250564575195312 | 0.043669467093106665 | 0.007949142932891846
+PCQAT | 16.250564575195312 | **0.039242053481006144** | 0.007946955680847167
+
+#### Observations
+* The new strategies have better MSE than all the models till now.
+* The inference time boost is not the best but still better than original model.
+* Unfortunately, none of the models were able to complete a lap in simulation.
+
+### [Tensorflow TensorRT (TF-TRT)](https://github.com/tensorflow/tensorrt) Installation
+
+I wanted to use a direct (uncomplicated) method for installation, so that anyone can follow it. After due research and trails for hours, I found one method which worked and it is also easy to use.
+
+The blog - [TENSORRT INSTALLATION & OPTIMIZATION](https://www.sagarmandiya.me/blog/tensorrt-installation-&-optimization) present the steps (using conda and pip) to install tensorrt. Before starting, we need to install `miniconda`, for which we can refer to official documentation - [Installing on Linux](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html). After successful install, I wrote a test script to optimize ResNet-50 model and it worked!!
+
 
 ## References
 
