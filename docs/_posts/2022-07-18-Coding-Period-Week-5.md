@@ -45,7 +45,7 @@ Previous week was focused on verifying the utility of the compressed models. We 
 ## Related Issues and Pull requests.
 
 Related to use BehaviorMetrics repository:
-* I face many the issue explained in the post - [docker vnc 2nd time connect issue](https://stackoverflow.com/questions/51633643/docker-vnc-2nd-time-connect-issue). I followed the solution proposed and it worked. Additionally, sometimes I have to set `$DISPLAY` variable to `:1` because `:0` was occupied, which I have to do in the container by editing `.bashrc`, `/etc/profile` and `/etc/bash.bashrc` and restart the container.
+* I face many the issue explained in the post - [docker vnc 2nd time connect issue](https://stackoverflow.com/questions/51633643/docker-vnc-2nd-time-connect-issue). I followed the solution proposed and it worked. Additionally, sometimes I have to set `$DISPLAY` variable to `:1` because `:0` was occupied, which I have to do in the container by editing `.bashrc`, `/etc/profile` and `/etc/bash.bashrc` and restart the container. The end solution was to remove `/tmp/.X0-lock` file in running container and restart it.
 
 PR to sumbit new script:
 * [Update the scripts to support optimized tflite models #386](https://github.com/JdeRobot/BehaviorMetrics/pull/386).
