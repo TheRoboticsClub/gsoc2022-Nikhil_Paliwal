@@ -81,10 +81,14 @@ We can observe that the performance is better than all previous optimization met
 
 ### Quantization Aware Training correction and benchmarking
 
+#### Simulation
 The correction is included in the PR#67.  The simulation results are as follow:
 ![ ]({{ site.url }}{{ site.baseurl }}/assets/images/blogs/QAT_correct.png)
 
-The offline results are: <br>
+
+#### Offline evaluation
+The offline results are:
+
 Method | Model size (MB) | MSE | Inference time (s)
 --- | --- | --- | ---
 Baseline | 64.9173469543457 | 0.04108056542590139 | 0.01011916732788086
