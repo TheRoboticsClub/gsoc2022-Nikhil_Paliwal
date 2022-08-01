@@ -25,8 +25,7 @@ pinned: false
 
 
 ## Preliminaries
-Last week, we cleared a milestone and cleared GSoC mid-term evaluations for the project! Everyone is happy with results and project pace and I hope to keep things in same momentum. We also uploaded a video explaining the results and progress made so far - <blockquote class="twitter-tweet"><p lang="en" dir="ltr">[BehaviorMetrics] Discover the progress of our <a href="https://twitter.com/hashtag/GSoC?src=hash&amp;ref_src=twsrc%5Etfw">#GSoC</a> student <a href="https://twitter.com/nikp1806?ref_src=twsrc%5Etfw">@nikp1806</a> optimizing deep learning models for end-to-end autonomous driving on a follow-line scenario. <br><br>10x faster model able to complete the lap! 🏎️<a href="https://twitter.com/GoogleOSS?ref_src=twsrc%5Etfw">@GoogleOSS</a> <a href="https://twitter.com/hashtag/selfDrivingCar?src=hash&amp;ref_src=twsrc%5Etfw">#selfDrivingCar</a> <a href="https://twitter.com/hashtag/GSoC2022?src=hash&amp;ref_src=twsrc%5Etfw">#GSoC2022</a> <a href="https://t.co/mIZfWZx8c2">https://t.co/mIZfWZx8c2</a></p>&mdash; JdeRobot (@JdeRobot) <a href="https://twitter.com/JdeRobot/status/1551894516210307072?ref_src=twsrc%5Etfw">July 26, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>.
-
+Last week, we cleared a milestone and cleared GSoC mid-term evaluations for the project! Everyone is happy with results and project pace and I hope to keep things in same momentum. We also uploaded a video explaining the results and progress made so far - [Tweet](https://twitter.com/JdeRobot/status/1551894516210307072?ref_src=twsrc%5Etfw).
 For this week, I have done performance verification of TensorRT optimized video in online simulation. Further each run was recorded for analyzing and verification. We also target to combine all the results so far and present here in one blog post. Moreover to support TensorRT optimization, the repository codes are updated and PRs are created to include the changes. I also present correction in Quantization aware training optimization and benchmarked the corrected model. Since I use my personal computer for simulation, which has limited space, I explored some memory efficients to run all these experiments. I will also present my founds so others can use it for similar situations.
 
 
@@ -52,9 +51,9 @@ Related to use DeepLearningStudio repository:
 * [Add support for inference optimization with TensorRT for Tensorflow models #71](https://github.com/JdeRobot/DeepLearningStudio/pull/71)
 * QAT correction in latest commit - [Add support for baseline evaluation and model optimization #67](https://github.com/JdeRobot/DeepLearningStudio/pull/67)
 
-## Important links:
-* BehaviorMetrics simulations - https://drive.google.com/drive/folders/1ovjuWjSy-ea7YtgnaSsgVsHnbo0HJY1A?usp=sharing
-* Trained weights - https://drive.google.com/drive/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt?usp=sharing
+## Important links
+* BehaviorMetrics simulations - [https://drive.google.com/drive/folders/1ovjuWjSy-ea7YtgnaSsgVsHnbo0HJY1A?usp=sharing](https://drive.google.com/drive/folders/1ovjuWjSy-ea7YtgnaSsgVsHnbo0HJY1A?usp=sharing)
+* Trained weights - [https://drive.google.com/drive/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt?usp=sharing](https://drive.google.com/drive/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt?usp=sharing)
 
 
 ## The execution
@@ -85,7 +84,7 @@ We can observe that the performance is better than all previous optimization met
 The correction is included in the PR#67.  The simulation results are as follow:
 ![ ]({{ site.url }}{{ site.baseurl }}/assets/images/blogs/QAT_correct.png)
 
-The offline results are:
+The offline results are: <br>
 Method | Model size (MB) | MSE | Inference time (s)
 --- | --- | --- | ---
 Baseline | 64.9173469543457 | 0.04108056542590139 | 0.01011916732788086
@@ -107,7 +106,7 @@ TF-TRT FP16 | 8.14 | 5.39 | 71.90 | **0.0056** | 0.48
 TF-TRT Int8 | 8.01 | 6.65 | 59.36 | 0.0067 | 0.51 
 
 
-### Combined result table - Offline scriptinf
+### Combined result table - Offline scripting
 All the simulations are conducted on a Nvidia V100 GPU with 32GB memory. The batch size was 1024. All subsets of new datasets are used for experiment, testset - SimpleCircuit, Montreal and Montemelo circuits. 
 
 Method  | Model size (MB) | MSE  | Inference time (s)
@@ -133,11 +132,22 @@ Here, I used the server with a 8 GB `NVIDIA GeForce GTX 1080/PCIe/SSE2` GPU and 
 
 Method | Model size (MB) | MSE | Inference time (s)
 --- | --- | --- | --- 
-Baseline | 196 | 0.041032556329194385 | 0.0012623071670532227
+Baseline | 195 | 0.041032556329194385 | 0.0012623071670532227
 Precision fp32 | 260 | 0.04103255125749467 | 0.0013057808876037597
 Precision fp16 | 260 | 0.04103255125749467 | 0.0021804444789886475
 Precision int8 | 260 | 0.04103255125749467 | **0.0011799652576446533**
 
+### Summarizing the improvements
+* We achieved a **~12x** reduction in the model memory size with `Dynamic range quantization`.
+* We maintain a similar `MSE` value (at best 0.001 better) as baseline in offline evaluation.
+* We achieved a **~33x** better inference time with `TensorRT Int8` optimization  and **~7.5x** better inference time with `Dynamic range quantization` in offline evaluation.
+* We achieved **~0.66x** times smaller `Position deviation MAE` and **~12x** time higher Brain iteration frequency (RT) in simulation.
+* We achieved **~22x** time improvement in `Mean inference time` in simulation.
+
+
+### Recommendations
+* Tflite optimized models gives better performance than original models with very less memory size. The installation is easy and there is no specific hardware constraints. I would recommend `Dynamic range quantization` as first optimization method.
+* TensorRT optimized models have best performance in both offline and simulation. However, they have large memory footprint. If the disk space is not a constraint, I would recommend using `Int8` or `Float16` precision model.
 
 
 ## References
