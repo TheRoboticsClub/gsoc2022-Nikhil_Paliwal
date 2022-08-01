@@ -60,7 +60,7 @@ The crash videos are avaiable on google drive - [https://drive.google.com/drive/
 
 ### Optimization with TensorRT
 
-I used the server with a * GB `NVIDIA GeForce GTX 1080/PCIe/SSE2` GPU and batch size of 1 (for inference).
+I used the server with a 8 GB `NVIDIA GeForce GTX 1080/PCIe/SSE2` GPU and batch size of 1 (for inference).
 
 There are some useful resources, I have listed below:
 * User Guide - [https://docs.nvidia.com/deeplearning/frameworks/tf-trt-user-guide/index.html](https://docs.nvidia.com/deeplearning/frameworks/tf-trt-user-guide/index.html)
