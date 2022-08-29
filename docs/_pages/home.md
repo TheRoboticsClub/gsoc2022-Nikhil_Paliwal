@@ -40,7 +40,7 @@ youTube_id: ID7qaEcIu4k
 
 Hello!
 
-I am Nikhil Paliwal, a master student studying in Saarland University, Germany. This project present my work for GSoc 2022 participation. My project focus on the optimization of Deep Learning models for autonomous driving. We used tools and techniques such as TensorRT, Quantization, Pruning, and architectural changes to optimize the correct model stack available in both PyTorch and Tensorflow.In the following [set of blogs](https://theroboticsclub.github.io/gsoc2022-Nikhil_Paliwal/logbook/) is explained the progress through the program.
+I am Nikhil Paliwal, a master student studying in Saarland University, Germany. This project present my work for GSoc 2022 participation. My project focus on the optimization of Deep Learning models for autonomous driving. We used tools and techniques such as TensorRT, Quantization, Pruning, and architectural changes to optimize the current model stack available in both PyTorch and Tensorflow. In the following [set of blogs](https://theroboticsclub.github.io/gsoc2022-Nikhil_Paliwal/logbook/), I have explained the progress made through out the program. I have also summarized the [results](https://theroboticsclub.github.io/gsoc2022-Nikhil_Paliwal/gsoc/Results-Summary/) and prepared a [Project Summary](https://theroboticsclub.github.io/gsoc2022-Nikhil_Paliwal/gsoc/Project-Summary/)
 
 Mentors:
 
