@@ -97,8 +97,11 @@ Baseline (circuit not completed) | 7.15 | - | 55.07 | 0.0019
 Global Prune | 7.73 | 17.03 | 42.90 | 0.0023 
 Local Prune | 7.74 | 14.15 | 32.57 | 0.0027   
 
-The baseline should be able to complete the circuit. However, it could not. This indicates the original model
-needs more training. The quantized models were not working as expected, we can the [Issue #396](https://github.com/JdeRobot/BehaviorMetrics/issues/396) for details about the problem.
+* Although it was mentioned that optimized models do not support GPU inference. I found that using GPU gives a boost
+in performance, e.g., inference time improved for Global pruning from 0.0071 to 0.0023 sec/frame.
+* The baseline should be able to complete the circuit. However, it could not. This indicates the original model
+needs more training. 
+* The quantized models were not working as expected, we can the [Issue #396](https://github.com/JdeRobot/BehaviorMetrics/issues/396) for details about the problem.
 
 ### Important links
 
