@@ -86,7 +86,6 @@ value.
 strategies are also very close.
 
 ### Simulation with SimpleCircuit
-COMPLETE THIS TABLE
 
 All the simulations are conducted on a 4 GB `NVIDIA GeForce GTX 1050/PCIe/SSE2` GPU and batch size of 1.
 

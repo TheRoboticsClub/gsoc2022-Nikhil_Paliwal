@@ -38,9 +38,9 @@ PilotNet (original) | 8.386 | 7.406 | 5.585 | 0.124 | 0.557 | TensorFlow
 Dynamic Range Q | 8.534 | 6.693 | 58.474 | 0.010 | 0.54 | TensorFlow Lite
 TF-TRT Baseline | **8.536** | 5.06 | **73.37** | 0.0063 | 0.47  | TensorFlow
 TF-TRT FP32 | 8.32 | **4.94** | 60.28 | 0.0065 | 0.50 | TensorFlow
-TF-TRT FP16 | 8.14 | 5.39 | 71.90 | **0.0056** | 0.48 | TensorFlow
+TF-TRT FP16 | 8.14 | 5.39 | 71.90 | 0.0056 | 0.48 | TensorFlow
 TF-TRT Int8 | 8.01 | 6.65 | 59.36 | 0.0067 | 0.51  | TensorFlow
-Global Prune | 7.73 | 17.03 | 42.90 | 0.0023 | 0.508 | PyTorch
+Global Prune | 7.73 | 17.03 | 42.90 | **0.0023** | 0.508 | PyTorch
 Local Prune | 7.74 | 14.15 | 32.57 | 0.0027 | 0.428 | PyTorch  
 
 #### Montreal
