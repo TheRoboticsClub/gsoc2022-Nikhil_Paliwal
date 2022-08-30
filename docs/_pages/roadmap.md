@@ -13,7 +13,7 @@ sidebar:
 ## Abstract
 
 The main aim of the project is to improve the current model stack of deep learning
-models, in terms of inference speed with minimum loss of precision, for autonomous driving applications. JdeRobot organization has created Behavior Metrics[1], a tool for comparing deep learning architectures for autonomous driving on different circuits with the support of Gazebo and Ros Noetic. The organization also provide another tool called DeepLearningStudio [2], which has datasets and model implementations for training deep learning models. We will use available tools and techniques such as TensorRT [3], Quantization [4], Pruning [5], and architectural changes [6,7,8] to optimize the correct model stack available in both PyTorch and Tensorflow.
+models, in terms of inference speed with minimum loss of precision, for autonomous driving applications. JdeRobot organization has created Behavior Metrics[1], a tool for comparing deep learning architectures for autonomous driving on different circuits with the support of Gazebo and Ros Noetic. The organization also provide another tool called DeepLearningStudio [2], which has datasets and model implementations for training deep learning models. We will use available tools and techniques such as TensorRT [3], Quantization [4], Pruning [5], and architectural changes [6,7,8] to optimize the currect model stack available in both PyTorch and Tensorflow.
 
 
 ### References
