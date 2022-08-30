@@ -1,6 +1,6 @@
 ---
 title: "Coding Period: Week 12"
-excerpt: "Resolving issues, documentations, result videos"
+excerpt: "Resolving issues, documentations, created result videos"
 usemathjax: true
 sidebar:
   nav: "docs"
