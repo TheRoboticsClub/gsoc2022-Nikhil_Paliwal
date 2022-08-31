@@ -42,7 +42,7 @@ frameworks and optimization strategies.
 ## Related Issues and Pull requests.
 
 Related to use BehaviorMetrics repository:
-* Issue: [Issue using Pytorch quantized models #396](https://github.com/JdeRobot/BehaviorMetrics/issues/396)
+* Issue: [Issue using Pytorch quantized models #396](https://github.com/JdeRobot/BehaviorMetrics/issues/396) solved by [Update PyTorch requirements #400](https://github.com/JdeRobot/BehaviorMetrics/pull/400)
 * PR: [PyTorch optimized model inference #399](https://github.com/JdeRobot/BehaviorMetrics/pull/399)
 
 Related to use DeepLearningStudio repository:
