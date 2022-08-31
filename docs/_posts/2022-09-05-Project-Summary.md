@@ -138,7 +138,7 @@ PyTorch also support similar optimization strategies. There is support of TorchS
 The following issues and PR's are created during that period:
 
 * Issue - [AttributeError: 'Brain' object has no attribute 'suddenness_distance' #397](https://github.com/JdeRobot/BehaviorMetrics/issues/397) solved by [PR #399](https://github.com/JdeRobot/BehaviorMetrics/pull/399).
-* Issue - [Issue using Pytorch quantized models #396](https://github.com/JdeRobot/BehaviorMetrics/issues/396)
+* Issue: [Issue using Pytorch quantized models #396](https://github.com/JdeRobot/BehaviorMetrics/issues/396) solved by [Update PyTorch requirements #400](https://github.com/JdeRobot/BehaviorMetrics/pull/400)
 * PR (new feature) - [PyTorch optimized model inference #399](https://github.com/JdeRobot/BehaviorMetrics/pull/399)
 * PR (new feature) - [Implemented Pytorch optimization strategies #72](https://github.com/JdeRobot/DeepLearningStudio/pull/72)
 
