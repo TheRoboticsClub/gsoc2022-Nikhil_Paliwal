@@ -60,14 +60,14 @@ Please refer to following blog posts for more details:
 
 The following video provides an overview of the complete project and a comparison between the final models. All implementations, documentations and experiments are contributed to the two official repositories of the JdeRobot organization, i.e, [BehaviorMetrics](https://github.com/JdeRobot/BehaviorMetrics) and [DeepLearningStudio](https://github.com/JdeRobot/DeepLearningStudio)  via Issues and Pull Requests (PRs). 
 
-ADD YOUTUBE LINK (ADD TO MAIN PAGE ALSO)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hXLMkoVL4Ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## TensorFlow Framework
 
 I started my work with TensorFlow framework. Till Phase 1 evaluation, the majority of goals for implementing and experimenting with 
 optimized models were completed. The following video provide a overview on the performance.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OcEoM9h2-5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Af3XARX-jaY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The intial weeks include setting up a baseline of available models for future comparison. Also, I worked on installing TensorRT for optimization. The following issues and PR's are created and mergerd during that period:
 
