@@ -1,6 +1,6 @@
 ---
 title: "Results summary"
-# excerpt: "TF-TRT model verification, aggregating results, development tips"
+excerpt: "Results!!"
 usemathjax: true
 sidebar:
   nav: "docs"
@@ -20,7 +20,7 @@ tags:
 - Behavior Metrics
 
 author: Nikhil Paliwal
-pinned: false
+pinned: true
 ---
 
 
