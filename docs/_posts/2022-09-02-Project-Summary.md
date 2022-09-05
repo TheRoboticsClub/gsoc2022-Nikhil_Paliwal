@@ -24,12 +24,12 @@ pinned: false
 
 # Project Aim
 
-The main aim of the project is to improve the current model stack of deep learning models, in terms of inference speed with minimum loss of precision, for autonomous driving applications. JdeRobot organization has created [Behavior Metrics](https://jderobot.github.io/BehaviorMetrics/), a tool for comparing deep learning architectures for autonomous driving on different circuits with the support of Gazebo and Ros Noetic. The organization also provide another tool called [DeepLearningStudio](https://jderobot.github.io/DeepLearningStudio/), which has datasets and model implementations for training deep learning models. I have used the available tools and techniques such as TensorRT, Quantization, Pruning, and varients to optimize the current model stack available in both PyTorch and TensorFlow framework.
+The main aim of this project is to improve the current model stack of deep learning models, in terms of inference speed with minimum loss of precision, for autonomous driving applications. JdeRobot organization has created [Behavior Metrics](https://jderobot.github.io/BehaviorMetrics/), a tool for comparing deep learning architectures for autonomous driving on different circuits with the support of Gazebo and Ros Noetic. The organization also provides another tool called [DeepLearningStudio](https://jderobot.github.io/DeepLearningStudio/), which has datasets and model implementations for training deep learning models. I have used the available tools and techniques such as TensorRT, Quantization, Pruning, and variants to optimize the current model stack available in both PyTorch and TensorFlow framework.
 
 # Contributions
 
-The first three week for community bonding, involves a lot of working in solving issues and adding new features.
-This initial work helped to set the base for further development and experimentation in coding period. The following issues and PR's are created and mergerd during and before that period.
+The first three weeks of the community bonding period involved working on solving issues and adding new features.
+This initial work helped to set the base for further development and experimentation in the coding period. The following issues and PRs have been created and merged during and before that period.
 
 * Issue [Replicating DeepestLSTMTinyPilotNet model from Tensorflow to PyTorch framework #37](https://github.com/JdeRobot/DeepLearningStudio/issues/37) solved by [Replicate DeepestLSTMTinyPilotNet model from Tensorflow to PyTorch framework #40](https://github.com/JdeRobot/DeepLearningStudio/pull/40)
 * New feature - [Add support files for DeepestLSTMTinyPilotNet pytorch model #335](https://github.com/JdeRobot/BehaviorMetrics/pull/335)
@@ -58,18 +58,18 @@ Please refer to following blog posts for more details:
 
 # Final simulation video
 
-The following video provides an overview of the complete project and a comparison between the final models. All implementations, documentations and experiments are contributed to the two official repositories of the JdeRobot organization, i.e, [BehaviorMetrics](https://github.com/JdeRobot/BehaviorMetrics) and [DeepLearningStudio](https://github.com/JdeRobot/DeepLearningStudio)  via Issues and Pull Requests (PRs). 
+The following video provides an overview of the complete project and a comparison between the final models. All implementations, documentation and experiments are contributed to the two official repositories of the JdeRobot organization, i.e., [BehaviorMetrics](https://github.com/JdeRobot/BehaviorMetrics) and [DeepLearningStudio](https://github.com/JdeRobot/DeepLearningStudio)  via Issues and Pull Requests (PRs). 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/hXLMkoVL4Ak" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## TensorFlow Framework
 
-I started my work with TensorFlow framework. Till Phase 1 evaluation, the majority of goals for implementing and experimenting with 
-optimized models were completed. The following video provide a overview on the performance.
+I started my work with the TensorFlow framework. Till Phase 1 evaluation, the majority of goals for implementing and experimenting with 
+optimized models were completed. The following video provides a overview of the performance.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Af3XARX-jaY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-The intial weeks include setting up a baseline of available models for future comparison. Also, I worked on installing TensorRT for optimization. The following issues and PR's are created and mergerd during that period:
+The initial weeks included setting up a baseline of available models for future comparison. Also, I worked on installing TensorRT for optimization. The following issues and PRs were created and merged during that period:
 
 * Issue - [Missing argument: learning_rate #55](https://github.com/JdeRobot/DeepLearningStudio/issues/55)
 * Issue - [Not utilizing GPU when running simulation #369](https://github.com/JdeRobot/BehaviorMetrics/issues/369) solved by
@@ -84,9 +84,9 @@ Please refer to following blog posts for more details:
 ### TF Lite Optimization
 
 All the optimization strategies are supported by TensorFlow Lite. There are majorly two categories - Quantization and Pruning.
-Count the varients and combination of techniques, total 10 optimization strategies were implemented. Moreover, proper benchmarking was done in offline mode over testset (calculating Mean square error, modal size and inference time) and online model via live simulation on Gazebo.
+Counting the variants and combinations of techniques, a total of 10 optimization strategies were implemented. Moreover, proper benchmarking was done in offline mode over the test set (calculating Mean square error, modal size, and inference time) and online model via live simulation on Gazebo.
 
-The following issues and PR's are created and mergerd during that period:
+The following issues and PRs are created and merged during that period:
 
 * New feature - [Add support for baseline evaluation and model optimization #67](https://github.com/JdeRobot/DeepLearningStudio/pull/67)
 * Issue - [ImportError: cannot import name 'ft2font' from 'matplotlib' #383](https://github.com/JdeRobot/BehaviorMetrics/issues/383)
@@ -103,14 +103,14 @@ Please refer to following blog posts for more details:
 
 Important Links:
 
-* All trained models are available [here](https://drive.google.com/drive/u/1/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt).
-* All simulation videos are available [here](https://drive.google.com/drive/folders/1ovjuWjSy-ea7YtgnaSsgVsHnbo0HJY1A?usp=sharing)
+* All the trained models are available [here](https://drive.google.com/drive/u/1/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt).
+* All the simulation videos are available [here](https://drive.google.com/drive/folders/1ovjuWjSy-ea7YtgnaSsgVsHnbo0HJY1A?usp=sharing)
 
 ### TensorFlow-TensorRT (TF-TRT)
 
-[TensorRT](https://developer.nvidia.com/tensorrt) is an SDK for high-performance deep learning inference. It utilized various techniques such as precision calibration, layer fusion, kernel tuning etc. It also support TensorFlow via TensorFlow-TensorRT package. I have optimized the models in three different precision (Int 8, float 16 and float 32) and achieved excellent results.
+[TensorRT](https://developer.nvidia.com/tensorrt) is an SDK for high-performance deep learning inference. It utilized various techniques such as precision calibration, layer fusion, kernel tuning, etc. It also supports TensorFlow via the TensorFlow-TensorRT package. I have optimized the models in three different precision (Int 8, float 16, and float 32) and achieved excellent results.
 
-The following issues and PR's are created and mergerd during that period:
+The following issues and PRs are created and merged during that period:
 
 * Issue - [Crash while recording stats with PilotNet (TF) model on Montreal circuit #392](https://github.com/JdeRobot/BehaviorMetrics/issues/392). 
 * PR (new feature) - [Add support for inference optimization with TensorRT for Tensorflow models #71](https://github.com/JdeRobot/DeepLearningStudio/pull/71)
@@ -128,14 +128,14 @@ Please refer to following blog posts for more details:
 
 Important Links:
 
-* All trained models are available [here](https://drive.google.com/drive/u/1/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt).
-* All simulation videos are available [here](https://drive.google.com/drive/folders/1ovjuWjSy-ea7YtgnaSsgVsHnbo0HJY1A?usp=sharing)
+* All the trained models are available [here](https://drive.google.com/drive/u/1/folders/1j2nnmfvRdQF5Ypfv1p3QF2p2dpNbXzkt).
+* All the simulation videos are available [here](https://drive.google.com/drive/folders/1ovjuWjSy-ea7YtgnaSsgVsHnbo0HJY1A?usp=sharing)
 
 ## PyTorch Framework
 
-PyTorch also support similar optimization strategies. There is support of TorchScript for inference and just changing the framework (from TF to PyTorch) show quite a performance difference. Most of the optimization strategies only support CPU inference, which could a major downside. I still received comparable and mostly better results with PyTorch. There are total 6 strategies implemented.
+PyTorch also supports similar optimization strategies. There is the support of TorchScript for inference and just changing the framework (from TF to PyTorch) shows quite a performance difference. Most of the optimization strategies only support CPU inference, which could be a major downside. I still received comparable and mostly better results with PyTorch. There is a total of 6 strategies implemented.
 
-The following issues and PR's are created during that period:
+The following issues and PRs are created during that period:
 
 * Issue - [AttributeError: 'Brain' object has no attribute 'suddenness_distance' #397](https://github.com/JdeRobot/BehaviorMetrics/issues/397) solved by [PR #399](https://github.com/JdeRobot/BehaviorMetrics/pull/399).
 * Issue: [Issue using Pytorch quantized models #396](https://github.com/JdeRobot/BehaviorMetrics/issues/396) solved by [Update PyTorch requirements #400](https://github.com/JdeRobot/BehaviorMetrics/pull/400)
@@ -152,44 +152,44 @@ Please refer to following blog posts for more details:
 
 Important Links:
 
-* All trained models are available [here](https://drive.google.com/drive/folders/1qTQ8Fc7OqBElU8M2llO_P-8FaA7yhiP5?usp=sharing)
-* All simulation videos are available [here](https://drive.google.com/drive/folders/1tRxVsPc0IGK2gm0gXYwy0R_mgEnHWzPp?usp=sharing).
+* All the trained models are available [here](https://drive.google.com/drive/folders/1qTQ8Fc7OqBElU8M2llO_P-8FaA7yhiP5?usp=sharing)
+* All the simulation videos are available [here](https://drive.google.com/drive/folders/1tRxVsPc0IGK2gm0gXYwy0R_mgEnHWzPp?usp=sharing).
 
 # Results
 
-I have perform an extensive range of experiments on each optimization strategy and compiled the combined results in a separate blog page - [Results Summary](https://theroboticsclub.github.io/gsoc2022-Nikhil_Paliwal/gsoc/Results-Summary/).
+I have performed an extensive range of experiments on each optimization strategy and compiled the combined results in a separate blog page - [Results Summary](https://theroboticsclub.github.io/gsoc2022-Nikhil_Paliwal/gsoc/Results-Summary/).
 
 ## Summarizing the improvements
 
-The essential observations and improvements are presented below that I have achieved through the project. For exact numerical figures, please see the result page (mentioned above). For code implementation, please refer to the individual PRs.
+The essential observations and improvements presented below that I have achieved through the project. For exact numerical figures, please see the result page (mentioned above). For code implementation, please refer to the individual PRs.
 
 ### TensorFlow framework
 
 * We achieved a **~12x** reduction in the model memory size with `Dynamic range quantization`.
-* We maintain a similar `MSE` value (at best 0.001 better) as baseline in offline evaluation.
-* We achieved a **~33x** better inference time with `TensorRT Int8` optimization  and **~7.5x** better inference time with `Dynamic range quantization` in offline evaluation.
-* We achieved **~0.66x** times smaller `Position deviation MAE` and **~12x** time higher Brain iteration frequency (RT) in simulation.
+* We maintain a similar `MSE` value (at best 0.001 better) as the baseline in offline evaluation.
+* We achieved a **~33x** better inference time with `TensorRT Int8` optimization and **~7.5x** better inference time with `Dynamic range quantization` in offline evaluation.
+* We achieved **~0.66x** times less `Position deviation MAE` and **~12x** time higher Brain iteration frequency (RT) in simulation.
 * We achieved **~22x** time improvement in `Mean inference time` in simulation.
 
 ### PyTorch framework
 
-* We achieved, at best, a **~4x** memory reduction with `Static Quantization technique`.
+* We achieved, at best, a **~4x** memory reduction with the `Static Quantization technique`.
 * The `MSE` is improved by 0.011 from baseline using `Prune + Quantization`. Other techniques also 
-gives a slight better performance.
+give a slightly better performance.
 * All the methods inference time in same scale ( 10 <sup>-3</sup> ) of magnitude.
-`Local prune` strategy has the best inference speed (cpu). 
+The `Local prune` strategy has the best inference speed (CPU). 
 * `Quantization + Prune` gives the best performance overall. However, all other
 strategies are also very close.
 
 ## Recommendations
 
-* PyTorch optimized models are smaller in size and have better inference time. I would recommend `Global/Local Prune` strategy for start because they also support inference with GPU. `Quantization + Prune` has least `MSE` but only support CPU inference.
-* Tflite optimized models gives better performance than original models with very less memory size. The installation is easy and there is no specific hardware constraints. I would recommend `Dynamic range quantization` as first optimization method.
-* TensorRT optimized models have best performance in both offline and simulation. However, they have large memory footprint. If the disk space is not a constraint, I would recommend using `Int8` or `Float16` precision model.
+* PyTorch optimized models are smaller in size and have better inference time. I would recommend the `Global/Local Prune` strategy for a start because they also support inference with GPU. `Quantization + Prune` has the least `MSE` but only supports CPU inference.
+* Tflite optimized models give better performance than original models with very less memory sizes. The installation is easy and there are no specific hardware constraints. I would recommend `Dynamic range quantization` as the first optimization method.
+* TensorRT optimized models have the best performance in both offline and simulation. However, they have a large memory footprint. If the disk space is not a constraint, I would recommend using the `Int8` or `Float16` precision model.
 
 # Future work
 
-TensorRT also supports PyTorch framework with [Torch-TensorRT](https://pytorch.org/TensorRT/) compiler. It would be interesting to compare the same TensorRT optimizations between the two popular deep learning frameworks (TensorFlow and PyTorch). We already have everything setup for offline and online benchmarking, which could provide additional insights for our project. I have saved useful resources for installation and development as follow:
+TensorRT also supports the PyTorch framework with [Torch-TensorRT](https://pytorch.org/TensorRT/) compiler. It would be interesting to compare the same TensorRT optimizations between the two popular deep learning frameworks (TensorFlow and PyTorch). We already have everything set up for offline and online benchmarking, which could provide additional insights for our project. I have saved helpful resources for installation and development as follows:
 
 * [Torch-TensorRT Installation](https://pytorch.org/TensorRT/getting_started/installation.html#installation)
 * [Torch-TensorRT Documentation](https://pytorch.org/TensorRT/)
